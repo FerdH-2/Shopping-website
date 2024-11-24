@@ -12,7 +12,9 @@ const ViewSpecificPage = () => {
   useEffect(() => {
     const fetchItemById = async () => {
       try {
-        const res = await fetch(`/api/items/${id}`);
+        const res = await fetch(
+          `https://grabngo-xtrasupermarket.vercel.app/api/json-server/items/${id}`
+        );
         const data = await res.json();
         setItem(data);
       } catch (error) {

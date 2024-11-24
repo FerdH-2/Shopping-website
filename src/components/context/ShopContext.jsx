@@ -5,7 +5,9 @@ export const ShopContext = createContext(null);
 
 const getDefaultCart = async () => {
   try {
-    const res = await fetch(`/api/items`);
+    const res = await fetch(
+      `https://grabngo-xtrasupermarket.vercel.app/api/json-server/items`
+    );
     const data = await res.json();
     console.log(data);
 

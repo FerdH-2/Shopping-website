@@ -10,8 +10,8 @@ const Menu_listings = ({ isHome = false }) => {
   useEffect(() => {
     const fetchItems = async () => {
       const apiUrl = isHome
-        ? "/api/items?_limit=4"
-        : "/api/items";
+        ? "https://grabngo-xtrasupermarket.vercel.app/api/json-server/items?_limit=4"
+        : "https://grabngo-xtrasupermarket.vercel.app/api/json-server/items";
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();

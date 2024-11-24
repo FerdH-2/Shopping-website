@@ -2,21 +2,23 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "../CartItem";
 import Spinner from "../Spinner";
-import EmptyCart from "../EmptyCart"; 
+import EmptyCart from "../EmptyCart";
 import { ShopContext } from "../context/ShopContext";
 
 const CartPage = () => {
-  const [items, setItems] = useState([]); 
-  const [loading, setLoading] = useState(true); 
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const { cartItems } = useContext(ShopContext); 
+  const { cartItems } = useContext(ShopContext);
 
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const res = await fetch(`/api/items`);
+        const res = await fetch(
+          `https://grabngo-xtrasupermarket.vercel.app/api/json-server/items`
+        );
         const data = await res.json();
-        setItems(data); 
+        setItems(data);
       } catch (error) {
         console.log("Error fetching cart items:", error);
       } finally {
