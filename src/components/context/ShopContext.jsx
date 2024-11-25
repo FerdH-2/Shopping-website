@@ -4,9 +4,10 @@ import Spinner from "../Spinner";
 export const ShopContext = createContext(null);
 
 const getDefaultCart = async () => {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   try {
     const res = await fetch(
-      `https://grabngo-xtrasupermarket.vercel.app/api/json-server/items`
+      `${API_BASE_URL}/items`
     );
     const data = await res.json();
     console.log(data);

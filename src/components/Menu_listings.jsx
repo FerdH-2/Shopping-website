@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 import Spinner from "./Spinner";
 
 const Menu_listings = ({ isHome = false }) => {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchItems = async () => {
       const apiUrl = isHome
-        ? "https://grabngo-xtrasupermarket.vercel.app/api/json-server/items?_limit=4"
-        : "https://grabngo-xtrasupermarket.vercel.app/api/json-server/items";
+        ? `${API_BASE_URL}/items?_limit=4`
+        : `${API_BASE_URL}/items`;
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();

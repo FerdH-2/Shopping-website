@@ -6,6 +6,7 @@ import { ShopContext } from "../context/ShopContext";
 
 const ViewSpecificPage = () => {
   const [loading, setLoading] = useState(true);
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   const [item, setItem] = useState(null);
   const { id } = useParams();
 
@@ -13,7 +14,7 @@ const ViewSpecificPage = () => {
     const fetchItemById = async () => {
       try {
         const res = await fetch(
-          `https://grabngo-xtrasupermarket.vercel.app/api/json-server/items/${id}`
+          `${API_BASE_URL}/items/${id}`
         );
         const data = await res.json();
         setItem(data);

@@ -6,6 +6,7 @@ import EmptyCart from "../EmptyCart";
 import { ShopContext } from "../context/ShopContext";
 
 const CartPage = () => {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,7 +16,7 @@ const CartPage = () => {
     const fetchCartItems = async () => {
       try {
         const res = await fetch(
-          `https://grabngo-xtrasupermarket.vercel.app/api/json-server/items`
+          `${API_BASE_URL}/items`
         );
         const data = await res.json();
         setItems(data);
