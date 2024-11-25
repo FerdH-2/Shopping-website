@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "http://localhost:3000",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch src/items.json --port 5000"
+    "start": "react-scripts start & json-server --watch db.json --port 3000"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

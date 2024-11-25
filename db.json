@@ -1,0 +1,198 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "name": "Apple",
+            "category": "Fruits",
+            "price": 0.5,
+            "stock": 150,
+            "rating": {
+                "average": 2.8,
+                "count": 75
+            },
+            "description": "These freshly picked red apples are the epitome of healthy snacking. Sourced from organic farms, each apple is carefully cultivated to provide a burst of sweetness and a crisp, satisfying bite. Perfect for making fresh juices, pies, or as a nutritious addition to salads. Rich in fiber, antioxidants, and Vitamin C, these apples are a natural way to boost immunity and overall well-being. Whether you're packing a school lunch or looking for a quick snack at work, our apples guarantee premium quality and freshness. They’re free from harmful chemicals and come with eco-friendly packaging to promote sustainability. Treat yourself to nature’s finest treat today.",
+            "image": "/src/assets/productImages/apple.jpg",
+            "details": {
+                "origin": "USA",
+                "weight": "150g",
+                "packaging": "Plastic-free"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Bag of Nigerian Rice - 50kg",
+            "category": "Food",
+            "price": 50,
+            "stock": 35,
+            "rating": {
+                "average": 4.5,
+                "count": 120
+            },
+            "description": "This premium bag of Nigerian rice is a staple for every home looking to prepare traditional dishes with authentic flavors. Each grain is carefully processed to ensure it’s free from stones and impurities, making it perfect for your favorite recipes. Whether you're preparing a rich pot of jollof rice, fried rice, or simply steamed rice to accompany soups, this rice guarantees excellent results. Locally sourced from the lush fields of Kebbi State, it supports Nigerian farmers and promotes sustainability. The parboiled texture ensures the rice cooks evenly and maintains its nutritional value, making it a healthier choice for your family. Packed in a durable sack, it’s perfect for storage and long-term use.",
+            "image": "/src/assets/productImages/rice.jpg",
+            "details": {
+                "type": "Parboiled",
+                "weight": "50kg",
+                "origin": "Kebbi, Nigeria"
+            }
+        },
+        {
+            "id": 3,
+            "name": "T-shirt - African Print",
+            "category": "Clothes",
+            "price": 15,
+            "stock": 100,
+            "rating": {
+                "average": 4.7,
+                "count": 60
+            },
+            "description": "Celebrate African culture with this beautifully designed T-shirt that features vibrant prints inspired by traditional African art. Made from 100% breathable cotton, it’s tailored to provide ultimate comfort, even on hot days. The colors are bold and vibrant, making a statement while blending seamlessly with any casual wardrobe. Perfect for both men and women, this T-shirt is a versatile piece that can be paired with jeans, shorts, or even traditional attire. Ideal for casual outings, cultural events, or as a thoughtful gift. Designed to be machine washable, it retains its shape and colors even after multiple washes, ensuring long-term use and value.",
+            "image": "/src/assets/productImages/african-tshirt.jpg",
+            "details": {
+                "material": "Cotton",
+                "sizes": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL"
+                ],
+                "care": "Machine wash cold, tumble dry low"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Samsung Galaxy S23",
+            "category": "Phones",
+            "price": 899,
+            "stock": 20,
+            "rating": {
+                "average": 4.9,
+                "count": 200
+            },
+            "description": "The Samsung Galaxy S23 is a true powerhouse, blending innovative technology with sleek design. Featuring a dynamic AMOLED 2X display with a 120Hz refresh rate, every swipe and scroll feels buttery smooth. The triple-camera system allows you to capture stunning photos and videos, even in low-light conditions. Powered by the latest Snapdragon processor, this phone handles multitasking, gaming, and heavy apps effortlessly. With a robust battery that lasts all day and fast charging capabilities, you’ll never miss a moment. Its durable Gorilla Glass Victus 2 ensures it can handle the rigors of daily use. The Galaxy S23 is a perfect blend of performance, design, and innovation, making it the ultimate smartphone experience.",
+            "image": "/src/assets/productImages/galaxy-s23.jpg",
+            "details": {
+                "storageOptions": [
+                    "128GB",
+                    "256GB",
+                    "512GB"
+                ],
+                "colorOptions": [
+                    "Phantom Black",
+                    "Cream",
+                    "Green"
+                ],
+                "warranty": "2 years"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Watercolor Landscape Painting",
+            "category": "Paintings",
+            "price": 120,
+            "stock": 5,
+            "rating": {
+                "average": 5.0,
+                "count": 15
+            },
+            "description": "Immerse yourself in the tranquility of nature with this breathtaking watercolor landscape painting. Depicting a serene sunset over rolling hills, it captures the beauty of untouched landscapes in vivid detail. Each brushstroke is a testament to the artist's skill, blending soft hues to create a calming ambiance. This artwork is perfect for elevating the aesthetic of your living room, bedroom, or office. Handcrafted on high-quality canvas, it’s durable and fade-resistant, ensuring it retains its vibrancy for years. Whether as a gift for an art lover or as a personal indulgence, this painting adds a touch of elegance to any space.",
+            "image": "/src/assets/productImages/landscape-painting.jpg",
+            "details": {
+                "artist": "Adetokunbo Oluwaseun",
+                "dimensions": "24x36 inches",
+                "medium": "Watercolor on canvas"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Ankara Maxi Dress",
+            "category": "Clothes",
+            "price": 60,
+            "stock": 25,
+            "rating": {
+                "average": 4.6,
+                "count": 40
+            },
+            "description": "Step out in style with this Ankara maxi dress that combines tradition with modern elegance. The dress features vibrant, intricate patterns that pay homage to African heritage while providing a chic and contemporary silhouette. Made from high-quality Ankara fabric, it is lightweight, breathable, and comfortable for all-day wear. The flowing design flatters all body types, making it an excellent choice for formal occasions, weddings, or casual outings. The dress is easy to accessorize, allowing you to achieve various looks with minimal effort. With its rich colors and superior craftsmanship, this dress is a must-have addition to your wardrobe.",
+            "image": "/src/assets/productImages/ankara-dress.jpg",
+            "details": {
+                "material": "Ankara",
+                "sizes": [
+                    "S",
+                    "M",
+                    "L",
+                    "XL"
+                ],
+                "care": "Dry clean recommended"
+            }
+        },
+        {
+            "id": 7,
+            "name": "Palm Oil - 5L",
+            "category": "Nigerian Products",
+            "price": 20,
+            "stock": 50,
+            "rating": {
+                "average": 4.7,
+                "count": 80
+            },
+            "description": "Our 5-liter bottle of palm oil is a premium product sourced from the finest palm plantations in Nigeria. Known for its rich flavor and deep red color, this palm oil enhances the taste and authenticity of traditional dishes like egusi soup, banga soup, and more. Packed in a convenient and sturdy container, it is easy to pour and store. This palm oil is free from additives, ensuring it retains its natural taste and nutritional benefits. It is rich in Vitamin A and antioxidants, making it not only delicious but also a healthy choice for your family. Perfect for home kitchens and large-scale cooking alike.",
+            "image": "/src/assets/productImages/palm-oil.webp",
+            "details": {
+                "weight": "5L",
+                "origin": "Enugu, Nigeria",
+                "storage": "Store in a cool, dry place"
+            }
+        },
+        {
+            "id": 8,
+            "name": "Pack of Gala Sausage Rolls",
+            "category": "Snacks",
+            "price": 5,
+            "stock": 80,
+            "rating": {
+                "average": 4.3,
+                "count": 30
+            },
+            "image": "/src/assets/productImages/gala-sausage-roll-cocktail.jpg",
+            "description": "Gala sausage rolls are a favorite snack for every Nigerian household. This pack offers convenience and nourishment, with delicious fillings wrapped in a light, fluffy dough. Ideal for quick lunches or to enjoy on the go."
+        },
+        {
+            "id": 9,
+            "name": "HP Pavilion Laptop",
+            "category": "Electronics",
+            "price": 750,
+            "stock": 12,
+            "rating": {
+                "average": 4.5,
+                "count": 55
+            },
+            "description": "The HP Pavilion Laptop is a versatile and powerful device designed for both work and play. Featuring a 15.6-inch Full HD display, it delivers stunning visuals for movies, gaming, or productivity tasks. Powered by the latest Intel Core i5 processor, it ensures fast performance and seamless multitasking. With a 512GB SSD, you’ll experience quick boot times and ample storage for files, photos, and applications. Its slim, lightweight design makes it portable and convenient for on-the-go use. The Pavilion also includes a long-lasting battery, advanced thermal management, and Bang & Olufsen-tuned audio for an enhanced experience.",
+            "image": "/src/assets/productImages/hp-pavilion.jpg",
+            "details": {
+                "processor": "Intel Core i5",
+                "memory": "8GB RAM",
+                "storage": "512GB SSD",
+                "warranty": "1 year"
+            }
+        },
+        {
+            "id": 10,
+            "name": "Pure Honey - 1L",
+            "category": "Nigerian Products",
+            "price": 10,
+            "stock": 60,
+            "rating": {
+                "average": 4.8,
+                "count": 65
+            },
+            "description": "Our 1-liter bottle of pure honey is harvested directly from Nigerian apiaries, ensuring you get the finest, unadulterated product. It is perfect as a natural sweetener for your tea, smoothies, or baked goods. Rich in antioxidants and enzymes, this honey supports digestion and boosts immunity. Its thick, golden consistency and distinct flavor make it a delight for both culinary and medicinal uses. Free from artificial additives, our honey is a testament to nature’s purity. Each bottle is carefully sealed to preserve its quality, offering you the best of natural sweetness in every drop.",
+            "image": "/src/assets/productImages/pure-honey.jpg",
+            "details": {
+                "weight": "1L",
+                "origin": "Kogi, Nigeria",
+                "certification": "Organic"
+            }
+        }
+    ]
+}
