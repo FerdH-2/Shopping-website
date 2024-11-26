@@ -4,10 +4,10 @@ import CartItem from "../CartItem";
 import Spinner from "../Spinner";
 import EmptyCart from "../EmptyCart";
 import { ShopContext } from "../context/ShopContext";
+import items from "../../../db.json"
 
 const CartPage = () => {
-  const API_BASE_URL = import.meta.env.VITE_API_URL;
-  const [items, setItems] = useState([]);
+  const [displayedItems, setDisplayedItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { cartItems } = useContext(ShopContext);
@@ -15,11 +15,7 @@ const CartPage = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const res = await fetch(
-          `${API_BASE_URL}/items`
-        );
-        const data = await res.json();
-        setItems(data);
+        setDisplayedItems(items);
       } catch (error) {
         console.log("Error fetching cart items:", error);
       } finally {
@@ -46,9 +42,13 @@ const CartPage = () => {
 
       <div className="flex flex-col space-y-4">
         {/* Render only items with non-zero quantities */}
-        {items.map((item) =>
-          cartItems[item.id] !== 0 ? (
-            <CartItem key={item.id} data={item} quantity={cartItems[item.id]} />
+        {displayedItems.map((displayedItem) =>
+          cartItems[displayedItem.id] !== 0 ? (
+            <CartItem
+              key={displayedItem.id}
+              item={displayedItem}
+              quantity={cartItems[displayedItem.id]}
+            />
           ) : null
         )}
       </div>
@@ -57,9 +57,11 @@ const CartPage = () => {
       <div className="flex justify-between items-center mt-6 bg-gray-100 p-4 rounded-lg">
         <h2 className="text-2xl font-semibold">
           Total: $
-          {items
+          {displayedItems
             .reduce(
-              (total, item) => total + (cartItems[item.id] || 0) * item.price,
+              (total, displayedItem) =>
+                total +
+                (cartItems[displayedItem.id] || 0) * displayedItem.price,
               0
             )
             .toFixed(2)}

@@ -1,30 +1,24 @@
 import React, { createContext, useState, useEffect } from "react";
 import Spinner from "../Spinner";
+import items from "../../../db.json"
 
 export const ShopContext = createContext(null);
 
 const getDefaultCart = async () => {
-  const API_BASE_URL = import.meta.env.VITE_API_URL;
   try {
-    const res = await fetch(
-      `${API_BASE_URL}/items`
-    );
-    const data = await res.json();
-    console.log(data);
-
     let cart = {};
-    for (let i = 1; i < data.length + 1; i++) {
-      cart[i] = 0; // Initialize cart items with a quantity of 0
+    for (let i = 1; i < items.length + 1; i++) {
+      cart[i] = 0;
     }
     return cart;
   } catch (error) {
-    console.log(error);
+    console.log("An error occurred in the shopcontext", error);
   }
 };
 
 const ShopContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState({}); // Initializing with an empty object
-  const [loading, setLoading] = useState(true); // To track loading state
+  const [cartItems, setCartItems] = useState({}); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const initializeCart = async () => {
@@ -58,9 +52,6 @@ const ShopContextProvider = (props) => {
   if (loading) {
     return <Spinner />;
   }
-
-  console.log(cartItems); // You can log to check the cart contents
-
   const contextValue = {
     cartItems,
     addToCart,

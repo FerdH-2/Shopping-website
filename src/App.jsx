@@ -12,6 +12,7 @@ import ViewAllPage from "./components/pages/ViewAllPage";
 import ViewSpecificPage from "./components/pages/ViewSpecificPage";
 import ShopContextProvider from "./components/context/ShopContext";
 import CartPage from "./components/pages/Cart";
+import Contact from "./components/pages/Contact";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="/products" element={<ViewAllPage />} />
       <Route path="/products/:id" element={<ViewSpecificPage />} />
       <Route path="/cart" element={<CartPage />} />
+      <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </Route>
   )

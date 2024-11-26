@@ -12,10 +12,13 @@ function Header() {
   return (
     <>
       <header className="w-full flex justify-between items-center h-36 bg-dark-blue-900 px-10 relative">
-        <div className="text-white font-semibold xs:text-3xl [@media(max-width:432px)]:text-xl">
+        <Link
+          to={"/"}
+          className="text-white font-semibold xs:text-3xl [@media(max-width:432px)]:text-xl"
+        >
           <span className="font-extralight text-gray-edit-100">Grab</span>
           NGo-Xtra
-        </div>
+        </Link>
         <div className="lg:flex justify-center items-center gap-5 md:hidden hidden">
           <FaPhoneSquareAlt
             className="text-4xl text-white"
@@ -42,9 +45,16 @@ function Header() {
       </header>
       <nav className="w-9/12 bg-dark-blue-700 h-20 lg:flex justify-evenly items-center gap-20 -mt-10 m-auto rounded-full relative hidden md:hidden ">
         <ul className="flex gap-5 text-gray-edit-100 font-semibold items-center">
-          <NavLink to="/" className={linkClass}> Home </NavLink>
-          <NavLink to="/products" className={linkClass}>Products</NavLink>
-          <NavLink to="/contact" className={linkClass}>Contact</NavLink>
+          <NavLink to="/" className={linkClass}>
+            {" "}
+            Home{" "}
+          </NavLink>
+          <NavLink to="/products" className={linkClass}>
+            Products
+          </NavLink>
+          <NavLink to="/contact" className={linkClass}>
+            Contact
+          </NavLink>
           <NavLink to="/cart" className={linkClass}>
             <FaShoppingCart className="text-3xl" />{" "}
           </NavLink>

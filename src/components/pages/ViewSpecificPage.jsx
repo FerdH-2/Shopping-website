@@ -3,39 +3,43 @@ import Spinner from "../Spinner";
 import { Link, useParams } from "react-router-dom";
 import { FaCircleLeft } from "react-icons/fa6";
 import { ShopContext } from "../context/ShopContext";
+import items from "../../../db.json";
 
 const ViewSpecificPage = () => {
   const [loading, setLoading] = useState(true);
-  const API_BASE_URL = import.meta.env.VITE_API_URL;
-  const [item, setItem] = useState(null);
+  const [displayedItem, setDisplayedItem] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchItemById = async () => {
-      try {
-        const res = await fetch(
-          `${API_BASE_URL}/items/${id}`
-        );
-        const data = await res.json();
-        setItem(data);
-      } catch (error) {
-        console.error("Error while fetching data:", error.message);
-      } finally {
-        setLoading(false);
+    const fetchedProduct = async () => {
+      const item = await fetchById(id);
+      if (item) {
+        setDisplayedItem(item);
+      } else {
+        console.log("Item not found!");
       }
+      setLoading(false);
     };
-
-    fetchItemById();
+    fetchedProduct();
   }, [id]);
 
-  const average = item?.rating?.average || 0;
-  const count = item?.rating?.count || 0;
+  const fetchById = async (id) => {
+    try {
+      const item = items.find((item) => item.id === parseInt(id, 10));
+      return item;
+    } catch (error) {
+      console.log("An error occurred while fetching data by id", error);
+    }
+  };
+
+  const average = displayedItem?.rating?.average || 0;
+  const count = displayedItem?.rating?.count || 0;
   const fullStars = Math.floor(average);
   const halfStar = average % 1 >= 0.5 ? 1 : 0;
   const emptyStars = 5 - (fullStars + halfStar);
 
   const { addToCart, cartItems } = useContext(ShopContext);
-  const cartItemAmount = item ? cartItems[item.id] || 0 : 0;
+  const cartItemAmount = displayedItem ? cartItems[displayedItem.id] || 0 : 0;
   return loading ? (
     <Spinner loading={loading} />
   ) : (
@@ -47,8 +51,8 @@ const ViewSpecificPage = () => {
         {/* Image Section */}
         <div className="flex justify-center">
           <img
-            src={item?.image || "/placeholder.jpg"}
-            alt={item?.name || "Product Image"}
+            src={displayedItem?.image || "/placeholder.jpg"}
+            alt={displayedItem?.name || "Product Image"}
             className="w-full max-w-sm object-cover rounded-lg shadow-md"
           />
         </div>
@@ -56,24 +60,26 @@ const ViewSpecificPage = () => {
         {/* Details Section */}
         <div className="flex flex-col justify-center space-y-4">
           <h1 className="text-3xl font-bold text-gray-800">
-            {item?.name || "Unknown Item"}
+            {displayedItem?.name || "Unknown Item"}
           </h1>
-          {item?.category && (
+          {displayedItem?.category && (
             <p className="text-gray-600">
-              <span className="font-semibold">Category:</span> {item.category}
+              <span className="font-semibold">Category:</span>{" "}
+              {displayedItem.category}
             </p>
           )}
-          {item?.price !== undefined && (
+          {displayedItem?.price !== undefined && (
             <p className="text-xl text-green-500 font-semibold">
-              ${item.price.toFixed(2)} per unit
+              ${displayedItem.price.toFixed(2)} per unit
             </p>
           )}
-          {item?.stock !== undefined && (
+          {displayedItem?.stock !== undefined && (
             <p className="text-gray-600">
-              <span className="font-semibold">In Stock:</span> {item.stock}
+              <span className="font-semibold">In Stock:</span>{" "}
+              {displayedItem.stock}
             </p>
           )}
-          {item?.rating && (
+          {displayedItem?.rating && (
             <p className="text-gray-600 flex items-center space-x-2">
               <span className="font-semibold">Rating:</span>
               <span>
@@ -85,115 +91,115 @@ const ViewSpecificPage = () => {
               <span>({count} reviews)</span>
             </p>
           )}
-          {item?.description && (
-            <p className="text-gray-800">{item.description}</p>
+          {displayedItem?.description && (
+            <p className="text-gray-800">{displayedItem.description}</p>
           )}
 
           {/* Additional Details Section */}
-          {item?.details && (
+          {displayedItem?.details && (
             <div className="bg-gray-100 p-4 rounded-lg">
               <h2 className="font-semibold text-lg mb-2">Details:</h2>
               <ul className="text-gray-600 space-y-1">
-                {item.details.origin && (
+                {displayedItem.details.origin && (
                   <li>
                     <span className="font-semibold">Origin:</span>{" "}
-                    {item.details.origin}
+                    {displayedItem.details.origin}
                   </li>
                 )}
-                {item.details.weight && (
+                {displayedItem.details.weight && (
                   <li>
                     <span className="font-semibold">Weight:</span>{" "}
-                    {item.details.weight}
+                    {displayedItem.details.weight}
                   </li>
                 )}
-                {item.details.packaging && (
+                {displayedItem.details.packaging && (
                   <li>
                     <span className="font-semibold">Packaging:</span>{" "}
-                    {item.details.packaging}
+                    {displayedItem.details.packaging}
                   </li>
                 )}
-                {item.details.type && (
+                {displayedItem.details.type && (
                   <li>
                     <span className="font-semibold">Type:</span>{" "}
-                    {item.details.type}
+                    {displayedItem.details.type}
                   </li>
                 )}
-                {item.details.material && (
+                {displayedItem.details.material && (
                   <li>
                     <span className="font-semibold">Material:</span>{" "}
-                    {item.details.material}
+                    {displayedItem.details.material}
                   </li>
                 )}
-                {item.details.sizes && (
+                {displayedItem.details.sizes && (
                   <li>
                     <span className="font-semibold">Sizes:</span>{" "}
-                    {item.details.sizes}
+                    {displayedItem.details.sizes}
                   </li>
                 )}
-                {item.details.care && (
+                {displayedItem.details.care && (
                   <li>
                     <span className="font-semibold">Care:</span>{" "}
-                    {item.details.care}
+                    {displayedItem.details.care}
                   </li>
                 )}
-                {item.details.storageOptions && (
+                {displayedItem.details.storageOptions && (
                   <li>
                     <span className="font-semibold">Storage Options:</span>{" "}
-                    {item.details.storageOptions}
+                    {displayedItem.details.storageOptions}
                   </li>
                 )}
-                {item.details.colorOptions && (
+                {displayedItem.details.colorOptions && (
                   <li>
                     <span className="font-semibold">Color Options:</span>{" "}
-                    {item.details.colorOptions}
+                    {displayedItem.details.colorOptions}
                   </li>
                 )}
-                {item.details.warranty && (
+                {displayedItem.details.warranty && (
                   <li>
                     <span className="font-semibold">Warranty:</span>{" "}
-                    {item.details.warranty}
+                    {displayedItem.details.warranty}
                   </li>
                 )}
-                {item.details.artist && (
+                {displayedItem.details.artist && (
                   <li>
                     <span className="font-semibold">Artist:</span>{" "}
-                    {item.details.artist}
+                    {displayedItem.details.artist}
                   </li>
                 )}
-                {item.details.dimensions && (
+                {displayedItem.details.dimensions && (
                   <li>
                     <span className="font-semibold">Dimensions:</span>{" "}
-                    {item.details.dimensions}
+                    {displayedItem.details.dimensions}
                   </li>
                 )}
-                {item.details.medium && (
+                {displayedItem.details.medium && (
                   <li>
                     <span className="font-semibold">Medium:</span>{" "}
-                    {item.details.medium}
+                    {displayedItem.details.medium}
                   </li>
                 )}
-                {item.details.storage && (
+                {displayedItem.details.storage && (
                   <li>
                     <span className="font-semibold">Storage:</span>{" "}
-                    {item.details.storage}
+                    {displayedItem.details.storage}
                   </li>
                 )}
-                {item.details.processor && (
+                {displayedItem.details.processor && (
                   <li>
                     <span className="font-semibold">Processor:</span>{" "}
-                    {item.details.processor}
+                    {displayedItem.details.processor}
                   </li>
                 )}
-                {item.details.memory && (
+                {displayedItem.details.memory && (
                   <li>
                     <span className="font-semibold">Memory:</span>{" "}
-                    {item.details.memory}
+                    {displayedItem.details.memory}
                   </li>
                 )}
-                {item.details.certification && (
+                {displayedItem.details.certification && (
                   <li>
                     <span className="font-semibold">Certification:</span>{" "}
-                    {item.details.certification}
+                    {displayedItem.details.certification}
                   </li>
                 )}
               </ul>
@@ -201,7 +207,7 @@ const ViewSpecificPage = () => {
           )}
 
           <button
-            onClick={() => addToCart(item.id)}
+            onClick={() => addToCart(displayedItem.id)}
             className="px-6 py-2 bg-dark-blue-700 text-white rounded-md hover:bg-gray-edit-100 transition"
           >
             Add to Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}
