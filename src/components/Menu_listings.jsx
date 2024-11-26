@@ -31,27 +31,27 @@ const Menu_listings = ({ isHome = false }) => {
     fetchItems();
   }, [API_BASE_URL, isHome]); // Dependency array to trigger re-fetching when necessary
 
-  return (
-    <section className="px-10 py-10 bg-gray-100">
-      {isHome ? (
-        <div className="w-full sm:flex sm:justify-between items-center mb-5 flex-wrap xs:grid xs:justify-center">
-          <h3 className="font-semibold text-2xl">
-            Best Seller{" "}
-            <span className="text-green-500 inner-text-shadow">Products</span>
-          </h3>
-          <Link
-            to="/products"
-            className="text-sm font-semibold px-8 py-3 bg-green-500 rounded-full text-white hover:text-green-500 hover:bg-dark-blue-700 xs:text-center"
-          >
-            View all Products
-          </Link>
-        </div>
-      ) : (
-        <h3 className="font-semibold text-2xl text-center mb-5 text-dark-blue-700">
-          Browse
-          <span className="text-green-500 inner-text-shadow"> Products</span>
-        </h3>
-      )}
+  // return (
+  //   <section className="px-10 py-10 bg-gray-100">
+  //     {isHome ? (
+  //       <div className="w-full sm:flex sm:justify-between items-center mb-5 flex-wrap xs:grid xs:justify-center">
+  //         <h3 className="font-semibold text-2xl">
+  //           Best Seller{" "}
+  //           <span className="text-green-500 inner-text-shadow">Products</span>
+  //         </h3>
+  //         <Link
+  //           to="/products"
+  //           className="text-sm font-semibold px-8 py-3 bg-green-500 rounded-full text-white hover:text-green-500 hover:bg-dark-blue-700 xs:text-center"
+  //         >
+  //           View all Products
+  //         </Link>
+  //       </div>
+  //     ) : (
+  //       <h3 className="font-semibold text-2xl text-center mb-5 text-dark-blue-700">
+  //         Browse
+  //         <span className="text-green-500 inner-text-shadow"> Products</span>
+  //       </h3>
+  //     )}
 
       {loading ? (
         <Spinner loading={loading} />
